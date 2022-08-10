@@ -24,4 +24,31 @@ public class ParametresConnexionSQL {
         psssword = "";
     }
     
+    
+    // accesseurs et mutateurs 
+
+    public String getUrlBD() {
+        return urlBD;
+    }
+
+    public void setUrlBD(String urlBD) {
+        this.urlBD = urlBD;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPsssword() {
+        return psssword;
+    }
+
+    public void setPsssword(String psssword) {
+        this.psssword = psssword;
+    }
+    
 }
