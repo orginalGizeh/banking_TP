@@ -7,6 +7,10 @@ package com.kalebmaf.implementation;
 
 import com.kalebmaf.bean.Banque;
 import com.kalebmaf.interfaces.IBanque;
+import com.kalebmaf.utils.ConnexionDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +26,28 @@ public class BanqueImpl implements IBanque{
 
     @Override
     public ArrayList<Banque> getAllBanque() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Banque> lesBanques = new ArrayList<>();
+        ConnexionDB conBD = new ConnexionDB();
+        Connection laConecxion = conBD.seConnecterMySql();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            String requestSql = "SELECT * FROM banque ORDER BY nom";
+            ps = laConecxion.prepareStatement(requestSql);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {                
+                Banque uneBanque = new Banque();
+                uneBanque.setCodeBanque(rs.getString(1));
+                uneBanque.setNomBanque(rs.getString(2));
+                uneBanque.setVilleQg(rs.getString(3));
+                lesBanques.add(uneBanque);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lesBanques;
     }
     
 }
