@@ -60,4 +60,11 @@ public class Banque implements Serializable{
         this.villeQg = villeQg;
     }
     
+    // toString
+
+    @Override
+    public String toString() {
+        return "Banque{" + "codeBanque=" + codeBanque + ", nomBanque=" + nomBanque + ", villeQg=" + villeQg + '}';
+    }
+    
 }
