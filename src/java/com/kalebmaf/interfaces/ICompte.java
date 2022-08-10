@@ -5,10 +5,15 @@
  */
 package com.kalebmaf.interfaces;
 
+import com.kalebmaf.bean.Compte;
+import java.util.ArrayList;
+
 /**
  *
  * @author Gizeh
  */
 public interface ICompte {
     
+    abstract Compte getCompte(String code);
+    abstract ArrayList<Compte> getAllComptes();
 }
