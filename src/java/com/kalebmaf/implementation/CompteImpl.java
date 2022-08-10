@@ -9,6 +9,7 @@ import com.kalebmaf.bean.Banque;
 import com.kalebmaf.bean.Compte;
 import com.kalebmaf.interfaces.ICompte;
 import com.kalebmaf.utils.ConnexionDB;
+import com.kalebmaf.utils.OutilsBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +52,11 @@ public class CompteImpl implements  ICompte{
              }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }finally{
+             OutilsBD.fermerConnexion(rs);
+             OutilsBD.fermerConnexion(ps);
+             OutilsBD.fermerConnexion(laConnexion);
+         }
          return lesComptes;
     }
     
@@ -78,7 +83,11 @@ public class CompteImpl implements  ICompte{
              }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }finally{
+             OutilsBD.fermerConnexion(rs);
+             OutilsBD.fermerConnexion(ps);
+             OutilsBD.fermerConnexion(laConnexion);
+         }
          return lesComptes;
     }
     

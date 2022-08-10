@@ -8,6 +8,7 @@ package com.kalebmaf.implementation;
 import com.kalebmaf.bean.Banque;
 import com.kalebmaf.interfaces.IBanque;
 import com.kalebmaf.utils.ConnexionDB;
+import com.kalebmaf.utils.OutilsBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,7 @@ public class BanqueImpl implements IBanque{
         ResultSet rs = null;
         
         try {
-            String requestSql = "SELECT * FROM compte WHERE code=?";
+            String requestSql = "SELECT * FROM banque WHERE code=?";
             ps = laConexion.prepareStatement(requestSql);
             ps.setString(1, uneBanque.getCodeBanque());
             rs = ps.executeQuery();
@@ -42,7 +43,11 @@ public class BanqueImpl implements IBanque{
              }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }finally{
+             OutilsBD.fermerConnexion(rs);
+             OutilsBD.fermerConnexion(ps);
+             OutilsBD.fermerConnexion(laConexion);
+         }
         return uneBanque;
     }
 
@@ -68,7 +73,11 @@ public class BanqueImpl implements IBanque{
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }finally{
+             OutilsBD.fermerConnexion(rs);
+             OutilsBD.fermerConnexion(ps);
+             OutilsBD.fermerConnexion(laConecxion);
+         }
         return lesBanques;
     }
     
