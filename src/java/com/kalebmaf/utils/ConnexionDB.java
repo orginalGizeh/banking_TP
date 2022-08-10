@@ -5,10 +5,37 @@
  */
 package com.kalebmaf.utils;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
  * @author Gizeh
  */
 public class ConnexionDB {
+    
+    private Connection laConnectionStatique;
+
+    public Connection getLaConnectionStatique() {
+        return laConnectionStatique;
+    }
+
+    public void setLaConnectionStatique(Connection laConnectionStatique) {
+        this.laConnectionStatique = laConnectionStatique;
+    }
+    
+    public Connection seConnecterMySql(){
+        
+        try {
+            //Class.forName("");
+            ParametresConnexionSQL lesParametres = new ParametresConnexionSQL();
+            laConnectionStatique = DriverManager.getConnection(lesParametres.getUrlBD(), 
+                    lesParametres.getUser(), lesParametres.getPsssword());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return laConnectionStatique;
+    }
+    
     
 }
