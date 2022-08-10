@@ -27,7 +27,7 @@ public class CompteImpl implements  ICompte{
     }
 
     @Override
-    public ArrayList<Compte> getAllComptes() {
+    public ArrayList<Compte> getAllComptesByCodeBanque(String codeBanque) {
          ArrayList<Compte> lesComptes = new ArrayList<>();
          ConnexionDB conBD = new ConnexionDB();
          Connection laConnexion = conBD.seConnecterMySql();
@@ -35,8 +35,9 @@ public class CompteImpl implements  ICompte{
          ResultSet rs = null;
          
          try {
-            String requestSql = "SELECT * FROM compte";
+            String requestSql = "SELECT * FROM compte WHERE codeBanque=?";
             ps = laConnexion.prepareStatement(requestSql);
+            ps.setString(1, codeBanque);
             rs = ps.executeQuery();
             
              while(rs.next()) {
