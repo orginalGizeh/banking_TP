@@ -19,7 +19,7 @@ public class ParametresConnexionSQL {
     // constructor
 
     public ParametresConnexionSQL() {
-        urlBD = "jdbc:mysql://localhost:3306/bd_sentinelle";
+        urlBD = "jdbc:mysql://localhost:3306/banking";
         user = "root";
         psssword = "";
     }
