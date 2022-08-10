@@ -34,5 +34,30 @@ public class Banque implements Serializable{
         this.codeBanque = codeBanque;
     }
     
+    // accesseurs et mutateurs 
+
+    public String getCodeBanque() {
+        return codeBanque;
+    }
+
+    public void setCodeBanque(String codeBanque) {
+        this.codeBanque = codeBanque;
+    }
+
+    public String getNomBanque() {
+        return nomBanque;
+    }
+
+    public void setNomBanque(String nomBanque) {
+        this.nomBanque = nomBanque;
+    }
+
+    public String getVilleQg() {
+        return villeQg;
+    }
+
+    public void setVilleQg(String villeQg) {
+        this.villeQg = villeQg;
+    }
     
 }
