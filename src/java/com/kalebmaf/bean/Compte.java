@@ -19,5 +19,20 @@ public class Compte implements Serializable{
     private String typeCompte;
     private double solde;
     
+    // connstructeurs
+
+    public Compte() {
+    }
+
+    public Compte(String codeCompte, String typeCompte, double solde) {
+        this.codeCompte = codeCompte;
+        this.typeCompte = typeCompte;
+        this.solde = solde;
+    }
+
+    public Compte(String codeCompte) {
+        this.codeCompte = codeCompte;
+    }
+    
     
 }
