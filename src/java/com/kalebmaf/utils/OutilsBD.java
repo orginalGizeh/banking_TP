@@ -5,6 +5,7 @@
  */
 package com.kalebmaf.utils;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -31,6 +32,16 @@ public class OutilsBD {
                 st.close();
             } catch (Exception e) {
                 System.out.println("Erreur fermeture connexion ST");
+            }
+        }
+    }
+    
+    public static void fermerConnexion(PreparedStatement pst){
+        if (pst!=null) {
+            try {
+                pst.close();
+            } catch (Exception e) {
+                System.out.println("Erreur fermeture connexion PST");
             }
         }
     }
