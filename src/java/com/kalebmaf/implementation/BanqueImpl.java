@@ -34,7 +34,7 @@ public class BanqueImpl implements IBanque{
             ps.setString(1, uneBanque.getCodeBanque());
             rs = ps.executeQuery();
             
-             if (rs!=null) {
+             if (rs.next()) {
                  
                  laBanque.setCodeBanque(rs.getString(1));
                  laBanque.setNomBanque(rs.getString(2));
@@ -48,7 +48,7 @@ public class BanqueImpl implements IBanque{
              OutilsBD.fermerConnexion(ps);
              OutilsBD.fermerConnexion(laConexion);
          }
-        return uneBanque;
+        return laBanque;
     }
 
     @Override
