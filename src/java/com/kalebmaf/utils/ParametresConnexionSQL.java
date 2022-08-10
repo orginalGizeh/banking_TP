@@ -16,5 +16,12 @@ public class ParametresConnexionSQL {
     private String user;
     private String psssword;
     
+    // constructor
+
+    public ParametresConnexionSQL() {
+        urlBD = "jdbc:mysql://localhost:3306/bd_sentinelle";
+        user = "root";
+        psssword = "";
+    }
     
 }
