@@ -6,6 +6,7 @@
 package com.kalebmaf.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Banque implements Serializable{
     private String codeBanque;
     private String nomBanque;
     private String villeQg;
+    private ArrayList<Compte> listesComptes;
     
     // constructeurs
 
@@ -28,6 +30,13 @@ public class Banque implements Serializable{
         this.codeBanque = codeBanque;
         this.nomBanque = nomBanque;
         this.villeQg = villeQg;
+    }
+
+    public Banque(String codeBanque, String nomBanque, String villeQg, ArrayList<Compte> listesComptes) {
+        this.codeBanque = codeBanque;
+        this.nomBanque = nomBanque;
+        this.villeQg = villeQg;
+        this.listesComptes = listesComptes;
     }
 
     public Banque(String codeBanque) {
@@ -59,12 +68,20 @@ public class Banque implements Serializable{
     public void setVilleQg(String villeQg) {
         this.villeQg = villeQg;
     }
+
+    public ArrayList<Compte> getListesComptes() {
+        return listesComptes;
+    }
+
+    public void setListesComptes(ArrayList<Compte> listesComptes) {
+        this.listesComptes = listesComptes;
+    }
     
     // toString
 
     @Override
     public String toString() {
-        return "Banque{" + "codeBanque=" + codeBanque + ", nomBanque=" + nomBanque + ", villeQg=" + villeQg + '}';
+        return "Banque{" + "codeBanque=" + codeBanque + ", nomBanque=" + nomBanque + ", villeQg=" + villeQg + ", listesComptes=" + listesComptes + '}';
     }
-    
+
 }
