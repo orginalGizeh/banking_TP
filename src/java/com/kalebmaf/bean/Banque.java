@@ -5,10 +5,19 @@
  */
 package com.kalebmaf.bean;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Gizeh
  */
-public class Banque {
+public class Banque implements Serializable{
+    
+    // les attributs ou champs
+    private static final Long serialUI = 1L;
+    private String codeBanque;
+    private String nomBanque;
+    private String villeQg;
+    
     
 }
