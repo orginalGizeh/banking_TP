@@ -18,6 +18,7 @@ public class Compte implements Serializable{
     private String codeCompte;
     private String typeCompte;
     private double solde;
+    private Banque uneBanque;
     
     // connstructeurs
 
@@ -33,6 +34,14 @@ public class Compte implements Serializable{
     public Compte(String codeCompte) {
         this.codeCompte = codeCompte;
     }
+
+    public Compte(String codeCompte, String typeCompte, double solde, Banque uneBanque) {
+        this.codeCompte = codeCompte;
+        this.typeCompte = typeCompte;
+        this.solde = solde;
+        this.uneBanque = uneBanque;
+    }
+    
     
     // accesseurs et mutateurs 
 
@@ -59,12 +68,20 @@ public class Compte implements Serializable{
     public void setSolde(double solde) {
         this.solde = solde;
     }
-    
+
+    public Banque getUneBanque() {
+        return uneBanque;
+    }
+
+    public void setUneBanque(Banque uneBanque) {
+        this.uneBanque = uneBanque;
+    }
+ 
     // method toString
 
     @Override
     public String toString() {
-        return "Compte{" + "codeCompte=" + codeCompte + ", typeCompte=" + typeCompte + ", solde=" + solde + '}';
+        return "Compte{" + "codeCompte=" + codeCompte + ", typeCompte=" + typeCompte + ", solde=" + solde + ", uneBanque=" + uneBanque + '}';
     }
     
 }
