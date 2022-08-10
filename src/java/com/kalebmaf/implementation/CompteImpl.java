@@ -55,4 +55,31 @@ public class CompteImpl implements  ICompte{
          return lesComptes;
     }
     
+    public ArrayList<Compte> getAllComptes() {
+         ArrayList<Compte> lesComptes = new ArrayList<>();
+         ConnexionDB conBD = new ConnexionDB();
+         Connection laConnexion = conBD.seConnecterMySql();
+         PreparedStatement ps = null;
+         ResultSet rs = null;
+         
+         try {
+            String requestSql = "SELECT * FROM compte";
+            ps = laConnexion.prepareStatement(requestSql);
+            rs = ps.executeQuery();
+            
+             while(rs.next()) {
+                 BanqueImpl banqueImpl = new BanqueImpl();
+                 Compte unCompte = new Compte();
+                 unCompte.setCodeCompte(rs.getString(1));
+                 unCompte.setTypeCompte(rs.getString(2));
+                 unCompte.setSolde(rs.getDouble(3));
+                 unCompte.setUneBanque(banqueImpl.getBanque(new Banque(rs.getString(4))));
+                 lesComptes.add(unCompte);
+             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         return lesComptes;
+    }
+    
 }
