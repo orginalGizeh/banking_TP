@@ -6,6 +6,7 @@
 package com.kalebmaf.utils;
 
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -20,6 +21,16 @@ public class OutilsBD {
                 rs.close();
             } catch (Exception e) {
                 System.out.println("Erreru fermeture connexion RS");
+            }
+        }
+    }
+    
+    public static void fermerConnexion(Statement st){
+        if (st!=null) {
+            try {
+                st.close();
+            } catch (Exception e) {
+                System.out.println("Erreur fermeture connexion ST");
             }
         }
     }
