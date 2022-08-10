@@ -5,10 +5,22 @@
  */
 package com.kalebmaf.utils;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Gizeh
  */
 public class OutilsBD {
     
+    //fermerture ResultSet
+    public static void fermerConnexion(ResultSet rs){
+        if (rs!=null) {
+            try {
+                rs.close();
+            } catch (Exception e) {
+                System.out.println("Erreru fermeture connexion RS");
+            }
+        }
+    }
 }
