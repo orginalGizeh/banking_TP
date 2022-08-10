@@ -34,5 +34,30 @@ public class Compte implements Serializable{
         this.codeCompte = codeCompte;
     }
     
+    // accesseurs et mutateurs 
+
+    public String getCodeCompte() {
+        return codeCompte;
+    }
+
+    public void setCodeCompte(String codeCompte) {
+        this.codeCompte = codeCompte;
+    }
+
+    public String getTypeCompte() {
+        return typeCompte;
+    }
+
+    public void setTypeCompte(String typeCompte) {
+        this.typeCompte = typeCompte;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
     
 }
