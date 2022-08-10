@@ -5,10 +5,19 @@
  */
 package com.kalebmaf.bean;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Gizeh
  */
-public class Compte {
+public class Compte implements Serializable{
+    
+    // attributs
+    private static final Long serialUI = 1L;
+    private String codeCompte;
+    private String typeCompte;
+    private double solde;
+    
     
 }
