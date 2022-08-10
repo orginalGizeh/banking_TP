@@ -15,5 +15,5 @@ import java.util.ArrayList;
 public interface ICompte {
     
     abstract Compte getCompte(String code);
-    abstract ArrayList<Compte> getAllComptes();
+    abstract ArrayList<Compte> getAllComptesByCodeBanque(String codeBanque);
 }
