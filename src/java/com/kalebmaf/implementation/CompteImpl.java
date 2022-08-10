@@ -5,8 +5,13 @@
  */
 package com.kalebmaf.implementation;
 
+import com.kalebmaf.bean.Banque;
 import com.kalebmaf.bean.Compte;
 import com.kalebmaf.interfaces.ICompte;
+import com.kalebmaf.utils.ConnexionDB;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
@@ -17,12 +22,36 @@ public class CompteImpl implements  ICompte{
     
     @Override
     public Compte getCompte(String code) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Compte unCompte = new Compte();
+         return unCompte;
     }
 
     @Override
     public ArrayList<Compte> getAllComptes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         ArrayList<Compte> lesComptes = new ArrayList<>();
+         ConnexionDB conBD = new ConnexionDB();
+         Connection laConnexion = conBD.seConnecterMySql();
+         PreparedStatement ps = null;
+         ResultSet rs = null;
+         
+         try {
+            String requestSql = "SELECT * FROM compte";
+            ps = laConnexion.prepareStatement(requestSql);
+            rs = ps.executeQuery();
+            
+             while(rs.next()) {
+                 BanqueImpl banqueImpl = new BanqueImpl();
+                 Compte unCompte = new Compte();
+                 unCompte.setCodeCompte(rs.getString(1));
+                 unCompte.setTypeCompte(rs.getString(2));
+                 unCompte.setSolde(rs.getDouble(3));
+                 unCompte.setUneBanque(banqueImpl.getBanque(new Banque(rs.getString(4))));
+                 lesComptes.add(unCompte);
+             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         return lesComptes;
     }
     
 }
