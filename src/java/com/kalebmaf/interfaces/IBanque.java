@@ -5,10 +5,15 @@
  */
 package com.kalebmaf.interfaces;
 
+import com.kalebmaf.bean.Banque;
+import java.util.ArrayList;
+
 /**
  *
  * @author Gizeh
  */
 public interface IBanque {
     
+    abstract Banque getBanque(Banque uneBanque);
+    abstract ArrayList<Banque> getAllBanque();
 }
