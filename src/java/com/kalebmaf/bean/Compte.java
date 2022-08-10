@@ -60,4 +60,11 @@ public class Compte implements Serializable{
         this.solde = solde;
     }
     
+    // method toString
+
+    @Override
+    public String toString() {
+        return "Compte{" + "codeCompte=" + codeCompte + ", typeCompte=" + typeCompte + ", solde=" + solde + '}';
+    }
+    
 }
