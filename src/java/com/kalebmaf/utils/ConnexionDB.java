@@ -37,5 +37,15 @@ public class ConnexionDB {
         return laConnectionStatique;
     }
     
-    
+    public static void main(String [] args){
+        Connection con = null;
+        try {
+            ConnexionDB cnx = new ConnexionDB();
+            con = cnx.seConnecterMySql();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            OutilsBD.fermerConnexion(con);
+        }
+    }
 }

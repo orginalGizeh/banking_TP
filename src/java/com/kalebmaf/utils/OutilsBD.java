@@ -5,6 +5,7 @@
  */
 package com.kalebmaf.utils;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -42,6 +43,17 @@ public class OutilsBD {
                 pst.close();
             } catch (Exception e) {
                 System.out.println("Erreur fermeture connexion PST");
+            }
+        }
+    }
+    
+    public static void fermerConnexion(Connection con){
+        if(con!=null){
+            try{
+                con.close();
+                //System.out.println("Connexion Bien Fermé");
+            }catch(Exception e){
+                System.out.println("Erreur lors de la fermeture d’une connexion dans fermerConnexion(Connection)");
             }
         }
     }
