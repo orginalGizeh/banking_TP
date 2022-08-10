@@ -19,5 +19,20 @@ public class Banque implements Serializable{
     private String nomBanque;
     private String villeQg;
     
+    // constructeurs
+
+    public Banque() {
+    }
+
+    public Banque(String codeBanque, String nomBanque, String villeQg) {
+        this.codeBanque = codeBanque;
+        this.nomBanque = nomBanque;
+        this.villeQg = villeQg;
+    }
+
+    public Banque(String codeBanque) {
+        this.codeBanque = codeBanque;
+    }
+    
     
 }
