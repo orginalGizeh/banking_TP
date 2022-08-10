@@ -21,7 +21,29 @@ public class BanqueImpl implements IBanque{
 
     @Override
     public Banque getBanque(Banque uneBanque) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Banque laBanque = new Banque();
+        ConnexionDB conBD = new ConnexionDB();
+        Connection laConexion = conBD.seConnecterMySql();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            String requestSql = "SELECT * FROM compte WHERE code=?";
+            ps = laConexion.prepareStatement(requestSql);
+            ps.setString(1, uneBanque.getCodeBanque());
+            rs = ps.executeQuery();
+            
+             if (rs!=null) {
+                 
+                 laBanque.setCodeBanque(rs.getString(1));
+                 laBanque.setNomBanque(rs.getString(2));
+                 laBanque.setVilleQg(rs.getString(3));
+                 
+             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return uneBanque;
     }
 
     @Override
